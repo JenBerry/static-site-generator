@@ -1,0 +1,27 @@
+{
+  "name": "static-site-generator",
+  "version": "1.0.0",
+  "description": "Simple static site generator using gulp to compile SASS, nunjucks, and ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
+    "watch": "gulp watch",
+    "server": "node server.js"
+  },
+  "author": "Jen Berry",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "express": "^4.16.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-nunjucks": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "jquery": "^3.3.1"
+  }
+}
