@@ -15,7 +15,11 @@ gulp.task('html',()=>{
 
 gulp.task('styles',()=>{
 	gulp.src('./src/sass/**/*.scss')
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({
+				includePaths: [
+				'node_modules/foundation-sites/scss'
+				],
+			}).on('error', sass.logError))
 		.pipe(autoprefixer({
 			browsers:['last 2 versions', 'ie >= 9', 'android >= 4.4', 'ios >= 7'],
 			cascase:false
@@ -32,7 +36,10 @@ gulp.task('scripts',()=>{
 });
 
 gulp.task('vendor',()=>{
-	gulp.src('./node_modules/jquery/dist/jquery.min.js')
+	gulp.src([
+		'./node_modules/jquery/dist/jquery.min.js',
+		'./node_modules/foundation-sites/dist/js/foundation.min.js'
+		])
 		.pipe(gulp.dest('./public/vendor/'));
 });
 
@@ -53,6 +60,6 @@ gulp.task('clean', ()=>{
 		'./public/js/',
 		'./public/css',
 		'./public/**/*.html'
-		])
+		], {read: false})
 		.pipe(clean());
 });
