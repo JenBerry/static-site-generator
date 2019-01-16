@@ -6,6 +6,7 @@ const clean = require('gulp-clean');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const nunjucks = require('gulp-nunjucks');
+const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('html',()=>{
 	gulp.src('./src/templates/**/*.html')
@@ -15,6 +16,7 @@ gulp.task('html',()=>{
 
 gulp.task('styles',()=>{
 	gulp.src('./src/sass/**/*.scss')
+		.pipe(sourcemaps.init())
 		.pipe(sass({
 				includePaths: [
 				'node_modules/foundation-sites/scss'
@@ -24,6 +26,7 @@ gulp.task('styles',()=>{
 			browsers:['last 2 versions', 'ie >= 9', 'android >= 4.4', 'ios >= 7'],
 			cascase:false
 		}))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./public/css/'));
 });
 
